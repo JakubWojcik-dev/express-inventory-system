@@ -1,10 +1,10 @@
 import "express";
-import { Db } from "mongodb";
+import { MongoClient } from "mongodb";
 
 declare global {
   namespace Express {
     interface Request {
-      db?: Db;
+      db?: MongoClient;
     }
   }
 }
