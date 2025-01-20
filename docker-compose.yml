@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    ports:
+      - ${APP_PORT}
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=${DATABASE_DOCKER_URL}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+    command: npm run dev
+
+  mongo:
+    image: mongo:6.0
+    container_name: db
+    ports:
+      - ${DB_PORT}
+    volumes:
+      - ${DB_VOLUME}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${DB}
+
+volumes:
+  mongo-data:
