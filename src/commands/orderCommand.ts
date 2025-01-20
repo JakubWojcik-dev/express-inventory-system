@@ -33,7 +33,7 @@ orderCommandRouter.post(
         (item: IProducts) => new ObjectId(item._id)
       );
       const fetchProductsFromDB = await dbConnection
-        .collection("Products")
+        .collection(process.env.PRODUCTS_COLLECTION_NAME!)
         .find({ _id: { $in: updatedProductsID } })
         .toArray();
 

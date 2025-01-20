@@ -108,7 +108,7 @@ productCommandRouter.delete(
       const dbConnection: Db = req.db?.db(process.env.DATABASE_NAME)!;
 
       const result = await dbConnection
-        .collection("Products")
+        .collection(process.env.PRODUCTS_COLLECTION_NAME!)
         .deleteOne({ _id: new ObjectId(_id) });
 
       if (result.deletedCount === 0) {
