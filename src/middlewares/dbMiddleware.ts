@@ -4,7 +4,7 @@ import { MongoClient } from "mongodb";
 export const dbMiddleware = (dbConnection: MongoClient) => {
   return (req: Request, res: Response, next: NextFunction) => {
     try {
-      req.db = dbConnection.db("inventoryDatabase")!;
+      req.db = dbConnection!;
       next();
     } catch (error) {
       console.error("Error in dbMiddleware:", error);

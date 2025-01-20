@@ -1,5 +1,4 @@
-import { ErrorRequestHandler, NextFunction, Request, Response } from "express";
-import { MongoClient } from "mongodb";
+import { NextFunction, Request, Response } from "express";
 import { IError } from "../types/error";
 
 export const errorMiddleware = () => {
