@@ -21,7 +21,7 @@ stockCommandRouter.post(
     const errorResults = validationResult(req);
 
     if (!errorResults.isEmpty()) {
-      res.status(400).json({ msg: "Error, invalid input data", errorResults });
+      res.status(422).json({ msg: "Error, invalid input data", errorResults });
       return;
     }
 
@@ -52,7 +52,7 @@ stockCommandRouter.post(
     const errorResults = validationResult(req);
 
     if (!errorResults.isEmpty()) {
-      res.status(400).json({ msg: "Error, invalid input data", errorResults });
+      res.status(422).json({ msg: "Error, invalid input data", errorResults });
       return;
     }
 

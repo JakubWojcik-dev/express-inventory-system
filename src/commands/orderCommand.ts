@@ -22,7 +22,7 @@ orderCommandRouter.post(
     const errorResults = validationResult(req);
 
     if (!errorResults.isEmpty()) {
-      res.status(400).json({ msg: "Error, invalid input data", errorResults });
+      res.status(422).json({ msg: "Error, invalid input data", errorResults });
       return;
     }
 
@@ -93,7 +93,7 @@ orderCommandRouter.delete(
         .deleteOne({ _id: new ObjectId(_id) });
 
       if (result.deletedCount === 0) {
-        throw new Error(`Order with id ${_id} not found`);
+        res.status(404).json({ message: `Order with id ${_id} not found` });
       }
       res.status(200).json({ message: "Order deleted successfully" });
       return;
