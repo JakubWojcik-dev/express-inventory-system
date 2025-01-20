@@ -28,6 +28,7 @@ To run project after instaling packages: 'npm run local'
 
 ## Documentation
 
+```
 Documentation was generated using swagger tool.
 
 To check API request documentation and test request run [text](http://localhost:3000/documentation/)
@@ -60,7 +61,5 @@ APP_PORT=
 DB_USER=
 DB_PASSWORD=
 DB=
-
-```
 
 ```
