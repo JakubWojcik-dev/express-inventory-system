@@ -5,7 +5,7 @@ on:
     branches: master
 jobs:
   test:
-    runs_on: ubuntu_latest
+    runs-on: ubuntu_latest
     container:
       image: node:20
     steps:
